@@ -1,0 +1,28 @@
+#ifndef NETWORK_HOST
+#define NETWORK_HOST
+
+#include <stdint.h>
+
+void cpu_Matsum(double* input1, double* input2, double* output, int N, int M);
+
+void cpu_Dim1Sum(double* input, double* output, int N, int M);
+
+void cpu_Matmul_element(double* input1, double* input2, double* output, int N, int M);
+
+void cpu_Mat_scale(double* input1, double scale, double* output, int N, int M);
+
+void cpu_Matmul(double* input, double* weight, double* output, int N, int K, int M);
+
+void cpu_Dense(double* input, double* weight, double* output, int N, int K, int M, bool bias=true);
+
+void cpu_ReLU(double* input, double* output, double* masked, int N);
+
+void cpu_Softmax(double* input, double* output, int batch, int N);
+
+void cpu_NLL_Loss(double* pred, uint8_t* labels, double* output, int numclass, int batch_size);
+
+void cpu_forward(double* input, uint8_t* labels, double** weights, double** outputs, int batchsize);
+
+void cpu_backward(double* loss, double** weights, double** outputs, int batchsize);
+
+#endif

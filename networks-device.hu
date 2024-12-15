@@ -1,0 +1,32 @@
+#ifndef NETWORK_DEVICE
+#define NETWORK_DEVICE
+
+#include <stdint.h>
+#include <stdio.h>
+
+__global__ void gpu_Matsum(double* input1, double* input2, double* output, int N, int M);
+
+__global__ void gpu_Dim1Sum(double* input, double* output, int N, int M);
+
+__global__ void gpu_Matmul_element(double* input1, double* input2, double* output, int N, int M);
+
+__global__ void gpu_Mat_scale(double* input1, double scale, double* output, int N, int M);
+
+__global__ void gpu_Matmul(double* input, double* weight, double* output, int N, int K, int M);
+
+__global__ void gpu_Dense_Bias_Calc(double* output, double* weight, int N, int K, int M);
+
+__host__ void gpu_Dense(double* input, double* weight, double* output, int N, int K, int M, bool bias=true);
+
+__global__ void gpu_ReLU(double* input, double* output, double* masked, int N);
+
+__global__ void gpu_Softmax(double* input, double* output, int batch, int N);
+
+__global__ void gpu_NLL_Loss(double* pred, uint8_t* labels, double* output, int numclass, int batch_size);
+
+__global__ void gpu_forward(double* input, uint8_t* labels, double** weights, double** outputs, int batchsize);
+
+__global__ void gpu_backward(double* loss, double** weights, double** outputs, int batchsize);
+
+
+#endif

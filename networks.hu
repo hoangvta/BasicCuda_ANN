@@ -1,0 +1,15 @@
+#ifndef NETWORKS
+#define NETWORKS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+#include "networks-host.hu"
+#include "networks-device.hu"
+
+void cpu_input_transform(uint8_t* data, double* &input, int N);
+
+void fit(int mode, uint8_t* data, double** &weights, uint8_t* labels, uint32_t dataSize, double mu = 0.00001);
+
+#endif

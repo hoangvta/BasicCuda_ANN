@@ -1,0 +1,16 @@
+#ifndef READ_DATASET
+#define READ_DATASET
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+uint32_t readBackward(uint32_t val);
+
+void readDataset(char* loc, uint8_t* &data, uint32_t* &dataSize, dim3* &dataDim);
+
+void readWeights(char* loc, double** & weights);
+
+void saveWeights(char* loc, double** &weights);
+
+#endif
